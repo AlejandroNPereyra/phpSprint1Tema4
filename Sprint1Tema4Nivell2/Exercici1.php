@@ -42,6 +42,14 @@ class PokerDice {
 
 }
 
+session_start();
+
+if (!isset($_SESSION['counter'])) {
+ 
+    $_SESSION['counter'] = 0;
+
+}
+
 $pokerDice = new PokerDice('Ace', 'King', 'Queen', 'Joker', 7, 8);
 
 $randomSides = array();
@@ -59,5 +67,11 @@ foreach ($randomSides as $randomPlay) {
     echo '<br>';
 
 }
+
+echo '<br>';
+
+$_SESSION['counter']++;
+
+echo "Total times you have thrown the dices: " . $_SESSION['counter'];
 
 ?>
